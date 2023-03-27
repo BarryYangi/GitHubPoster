@@ -100,7 +100,7 @@ jobs:
       - name: Run sync kindle script
         if: contains(env.TYPE, 'kindle')
         run: |
-          python -m github_poster kindle --kindle_cookie  '${{ secrets.KINDLE_COOKIE }} --me ${{ env.ME }}
+          python -m github_poster kindle --kindle_cookie ${{ secrets.KINDLE_COOKIE }} --me ${{ env.ME }}
 
       - name: Run sync bilibili script
         if: contains(env.TYPE, 'bilibili')
@@ -130,7 +130,7 @@ jobs:
       - name: Run sync bbdc script
         if: contains(env.TYPE, 'bbdc')
         run: |
-          python3 -m github_poster bbdc --bbdc_user_id ${{ secrets.BBDC_USER_ID }} --bbdc_type word
+          python3 -m github_poster bbdc --bbdc_user_id "${{ secrets.BBDC_USER_ID }}" --bbdc_type word --me ${{ env.ME }}
 
       # change the types to yours
       - name: Run sync multiple script
